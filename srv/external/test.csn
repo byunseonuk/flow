@@ -1,0 +1,792 @@
+{
+ "meta": {
+  "creator": "cds-dk 7.0.2"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "test": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true",
+   "@sap.message.scope.supported": "true",
+   "@sap.supported.formats": "atom json xlsx"
+  },
+  "test.InputSet": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.pageable": "false",
+   "@sap.addressable": "false",
+   "@sap.content.version": "1",
+   "elements": {
+    "userId": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.unicode": "false",
+     "@sap.label": "user id",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "rgsnDttm": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.unicode": "false",
+     "@sap.label": "date and time",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "roomSrno": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.unicode": "false",
+     "@sap.label": "chat room number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "roomChatSrno": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.unicode": "false",
+     "@sap.label": "chat number",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "mobileYn": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.unicode": "false",
+     "@sap.label": "if mobile",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "context": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.unicode": "false",
+     "@sap.label": "context",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "text": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.unicode": "false",
+     "@sap.label": "text",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    },
+    "messageCode": {
+     "type": "cds.String",
+     "length": 50,
+     "@sap.unicode": "false",
+     "@sap.label": "message code",
+     "@sap.creatable": "false",
+     "@sap.updatable": "false",
+     "@sap.sortable": "false",
+     "@sap.filterable": "false",
+     "notNull": true
+    }
+   }
+  },
+  "test.ZIFCV7000_DDL": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "BP List",
+   "elements": {
+    "kunnr": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "고객",
+     "@sap.quickinfo": "고객 번호",
+     "notNull": true
+    },
+    "name1": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "이름 1",
+     "@sap.quickinfo": "조직의 이름 1"
+    },
+    "pernr": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "사원 번호"
+    }
+   }
+  },
+  "test.ZIFCV7001_DDL": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "BP view",
+   "elements": {
+    "partner": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "비즈니스 파트너",
+     "@sap.quickinfo": "비즈니스 파트너 번호",
+     "notNull": true
+    },
+    "name_org1": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "이름 1",
+     "@sap.quickinfo": "조직의 이름 1"
+    },
+    "city": {
+     "type": "cds.String",
+     "length": 140
+    },
+    "aufsd": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "오더 보류",
+     "@sap.quickinfo": "고객에 대한 중앙 오더 보류"
+    },
+    "aufsd_t": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "내역"
+    },
+    "lifsd": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "납품보류",
+     "@sap.quickinfo": "고객의 중앙납품보류"
+    },
+    "lifsd_t": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "납품 보류 내역",
+     "@sap.quickinfo": "내역"
+    },
+    "faksd": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "대금청구 보류",
+     "@sap.quickinfo": "고객의 중앙 대금청구 보류"
+    },
+    "faksd_t": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "청구 보류 내역"
+    },
+    "konda": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "고객 가격 그룹"
+    },
+    "konda_t": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "내역"
+    },
+    "lprio": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "납품 우선순위"
+    },
+    "lprio_t": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "내역"
+    },
+    "vwerk": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "납품 플랜트",
+     "@sap.quickinfo": "납품 플랜트(자체 또는 외부)"
+    },
+    "vsbed": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "출하 조건"
+    },
+    "vsbed_t": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "내역",
+     "@sap.quickinfo": "출하 조건 내역"
+    },
+    "inco1": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "인코텀스",
+     "@sap.quickinfo": "인도 조건(파트 1)"
+    },
+    "zterm": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "지급 조건",
+     "@sap.quickinfo": "지급 조건 키"
+    },
+    "zterm_t": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "내역",
+     "@sap.quickinfo": "지급조건내역"
+    }
+   }
+  },
+  "test.ZIFCV7002_DDL": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "PO List",
+   "elements": {
+    "vbeln": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "판매 문서",
+     "notNull": true
+    },
+    "auart": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "판매 문서 유형"
+    },
+    "auart_t": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "내역",
+     "@sap.quickinfo": "판매 문서 유형 내역"
+    },
+    "kunnr": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "판매처"
+    },
+    "kunnr_t": {
+     "type": "cds.String",
+     "length": 35,
+     "@sap.label": "이름",
+     "@sap.quickinfo": "이름 1"
+    },
+    "audat": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "증빙일",
+     "@sap.quickinfo": "증빙일(받은 일자/보낸 일자)"
+    },
+    "erdat": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "생성일",
+     "@sap.quickinfo": "레코드생성일"
+    },
+    "vkorg": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "영업 조직"
+    },
+    "vkorg_t": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "이름"
+    },
+    "vtweg": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "유통 경로"
+    },
+    "vtweg_t": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "이름"
+    },
+    "pernr": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "사원 번호"
+    },
+    "pernr_t": {
+     "type": "cds.String",
+     "length": 80,
+     "@sap.label": "성명"
+    },
+    "netwr": {
+     "type": "cds.Decimal",
+     "precision": 16,
+     "scale": 3,
+     "@sap.unit": "waerk",
+     "@sap.label": "정가",
+     "@sap.quickinfo": "문서통화의 판매오더정가"
+    },
+    "waerk": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.label": "전표 통화",
+     "@sap.quickinfo": "SD 문서 통화",
+     "@sap.semantics": "currency-code"
+    },
+    "spart": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "제품군"
+    }
+   }
+  },
+  "test.ZIFCV7010_DDL": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Order List",
+   "elements": {
+    "vbeln": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "판매 문서",
+     "notNull": true
+    },
+    "pernr": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "사원 번호"
+    }
+   }
+  },
+  "test.ZIFCV7011_DDL": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "order details",
+   "elements": {
+    "vbeln": {
+     "key": true,
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "판매 문서",
+     "notNull": true
+    },
+    "posnr": {
+     "type": "cds.String",
+     "length": 6,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "판매 문서 품목"
+    },
+    "auart": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "판매 문서 유형"
+    },
+    "bezei": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "내역",
+     "@sap.quickinfo": "판매 문서 유형 내역"
+    },
+    "lifsk": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "납품 보류",
+     "@sap.quickinfo": "납품 보류(문서 헤더)"
+    },
+    "abgru": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "거부 사유",
+     "@sap.quickinfo": "판매 문서 거부 사유"
+    },
+    "kunnr": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "판매처"
+    },
+    "name1": {
+     "type": "cds.String",
+     "length": 35,
+     "@sap.label": "이름",
+     "@sap.quickinfo": "이름 1"
+    },
+    "audat": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "증빙일",
+     "@sap.quickinfo": "증빙일(받은 일자/보낸 일자)"
+    },
+    "erdat": {
+     "type": "cds.Date",
+     "@sap.display.format": "Date",
+     "@sap.label": "생성일",
+     "@sap.quickinfo": "레코드생성일"
+    },
+    "vtweg": {
+     "type": "cds.String",
+     "length": 2,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "유통 경로"
+    },
+    "vtext": {
+     "type": "cds.String",
+     "length": 20,
+     "@sap.label": "이름"
+    },
+    "pernr": {
+     "type": "cds.String",
+     "length": 8,
+     "@sap.display.format": "NonNegative",
+     "@sap.label": "사원 번호"
+    },
+    "name_org1": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "이름 1",
+     "@sap.quickinfo": "조직의 이름 1"
+    },
+    "matnr": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "자재",
+     "@sap.quickinfo": "자재 번호"
+    },
+    "maktx": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "자재내역"
+    },
+    "vrkme": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "판매 단위",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "waerk": {
+     "type": "cds.String",
+     "length": 5,
+     "@sap.label": "전표 통화",
+     "@sap.quickinfo": "SD 문서 통화",
+     "@sap.semantics": "currency-code"
+    },
+    "netpr": {
+     "type": "cds.Decimal",
+     "precision": 12,
+     "scale": 3,
+     "@sap.unit": "waerk",
+     "@sap.label": "단가"
+    },
+    "kwmeng": {
+     "type": "cds.Decimal",
+     "precision": 15,
+     "scale": 3,
+     "@sap.unit": "vrkme",
+     "@sap.label": "오더 수량",
+     "@sap.quickinfo": "누적 오더 수량(판매 단위)"
+    },
+    "netwr": {
+     "type": "cds.Decimal",
+     "precision": 16,
+     "scale": 3,
+     "@sap.unit": "waerk",
+     "@sap.label": "정가",
+     "@sap.quickinfo": "전표 통화의 오더 품목 정가"
+    },
+    "count1": {
+     "type": "cds.Decimal",
+     "precision": 15,
+     "scale": 3
+    },
+    "amount1": {
+     "type": "cds.Decimal",
+     "precision": 26,
+     "scale": 5
+    },
+    "count2": {
+     "type": "cds.Integer"
+    },
+    "amount2": {
+     "type": "cds.Integer"
+    },
+    "count3": {
+     "type": "cds.Integer"
+    },
+    "amount3": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3
+    }
+   }
+  },
+  "test.ZIFCV7020_DDL": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "Stock List",
+   "elements": {
+    "matnr": {
+     "key": true,
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "자재",
+     "@sap.quickinfo": "자재 번호",
+     "notNull": true
+    },
+    "matnr_t": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "자재내역"
+    }
+   }
+  },
+  "test.ZIFCV7021_DDL": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "stock",
+   "elements": {
+    "matnr": {
+     "key": true,
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "자재",
+     "@sap.quickinfo": "자재 번호",
+     "notNull": true
+    },
+    "werks": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "플랜트"
+    },
+    "WERKS_T": {
+     "type": "cds.String",
+     "length": 30,
+     "@sap.label": "성 1",
+     "@sap.quickinfo": "성"
+    },
+    "lgort": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "저장 위치"
+    },
+    "LGORT_T": {
+     "type": "cds.String",
+     "length": 16,
+     "@sap.label": "내역",
+     "@sap.quickinfo": "저장 위치 내역"
+    },
+    "MATNR_T": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "자재내역"
+    },
+    "meins": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "기본 단위",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "labst": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "meins",
+     "@sap.label": "가용",
+     "@sap.quickinfo": "평가된 가용 재고"
+    },
+    "LABST_CHAR": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "자재",
+     "@sap.quickinfo": "자재 번호"
+    },
+    "VMENG": {
+     "type": "cds.Decimal",
+     "precision": 15,
+     "scale": 3
+    },
+    "VMENG_CHAR": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "자재",
+     "@sap.quickinfo": "자재 번호"
+    },
+    "A_LABST": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "meins",
+     "@sap.label": "가용",
+     "@sap.quickinfo": "평가된 가용 재고"
+    },
+    "A_LABST_CHAR": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "자재",
+     "@sap.quickinfo": "자재 번호"
+    }
+   }
+  },
+  "test.ZIFCV7022_DDL": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "material info",
+   "elements": {
+    "matnr": {
+     "key": true,
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "자재",
+     "@sap.quickinfo": "자재 번호",
+     "notNull": true
+    },
+    "maktx": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.label": "자재내역"
+    },
+    "vpsta": {
+     "type": "cds.String",
+     "length": 15,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "완료유지보수상태",
+     "@sap.quickinfo": "전체 자재의 유지보수 상태"
+    },
+    "pstat": {
+     "type": "cds.String",
+     "length": 15,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "유지보수 상태"
+    },
+    "mtart": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "자재 유형"
+    },
+    "mbrsh": {
+     "type": "cds.String",
+     "length": 1,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "산업 부문"
+    },
+    "matkl": {
+     "type": "cds.String",
+     "length": 9,
+     "@sap.display.format": "UpperCase",
+     "@sap.label": "자재 그룹"
+    },
+    "meins": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "기본 단위",
+     "@sap.semantics": "unit-of-measure"
+    },
+    "brgew": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "gewei",
+     "@sap.label": "총 중량"
+    },
+    "ntgew": {
+     "type": "cds.Decimal",
+     "precision": 13,
+     "scale": 3,
+     "@sap.unit": "gewei",
+     "@sap.label": "순 중량"
+    },
+    "gewei": {
+     "type": "cds.String",
+     "length": 3,
+     "@sap.label": "중량 단위",
+     "@sap.semantics": "unit-of-measure"
+    }
+   }
+  }
+ }
+}

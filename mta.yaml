@@ -1,0 +1,83 @@
+_schema-version: '3.1'
+ID: flow
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npx cds build --production
+modules:
+  - name: flow-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: flow-db
+      - name: S4H-dest
+      - name: S4H-conn
+      - name: S4H-uaa
+
+  - name: flow-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: flow-db
+
+resources:
+  - name: flow-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+
+  # =========================================#
+  #  Destination
+  # =========================================#
+  - name: S4H-dest
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+
+  # =========================================#
+  #  uaa ( XUSAA )
+  # =========================================#
+  - name: S4H-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      # path: ./xs-security.json
+      # config:
+      #   xsappname: flow-${org}-${space}
+      #   tenant-mode: dedicated
+      #   role-collections:
+      #     - name: 'flowManager-${space}'
+      #       description: Manage flow
+      #       role-template-references:
+      #         - $XSAPPNAME.flowManager
+      #     - name: 'flowViewer-${space}'
+      #       description: View flow
+      #       role-template-references:
+      #         - $XSAPPNAME.flowViewer
+
+  # =========================================#
+  #  connectivity
+  # =========================================#   
+  - name: S4H-conn
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
