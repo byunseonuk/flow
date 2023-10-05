@@ -31,7 +31,7 @@ module.exports = cds.service.impl(async function () {
             case ('1' || '2' || '3'):  // 기다려주세요 메세지 먼저 보내기(메세지코드 앞자리가 1,2,3인경우)
                 funcs.send_wait(req, rno, cno, uid);
             case ('1'):            // 거래처관리
-                //json = await cust.customer_info(mcode);
+                // json = await cust.customer_info(mcode);
                 return await cust.customer_info(mcode);
                 break;
             case ('2'):            // 영업주문관리
@@ -45,20 +45,23 @@ module.exports = cds.service.impl(async function () {
         }
 
         // request body 만들기
-        let data = {
-            // "JSONData": {
-            //     "API_KEY":"FLOW_CHATBOT_RESPONSE_API",
-            //     "CNTS_CRTC_KEY":"20210721-50ed1591-9dfc-47d1-99b1-45171c467336",
-            //     "REQ_DATA":{
-            //         "CHATBOT_ID": "woongjinbot",
-            //         "ROOM_SRNO": rno,
-            //         "ROOM_CHAT_SRNO": cno,
-            //         "USER_ID": uid,
-            //         "MSG_JSON": json
-            //     }    
-            // }
+        // let data = {
+        //     "JSONData": {
+        //         "API_KEY":"FLOW_CHATBOT_RESPONSE_API",
+        //         "CNTS_CRTC_KEY":"20210721-50ed1591-9dfc-47d1-99b1-45171c467336",
+        //         "REQ_DATA":{
+        //             "CHATBOT_ID": "woongjinbot",
+        //             "ROOM_SRNO": rno,
+        //             "ROOM_CHAT_SRNO": cno,
+        //             "USER_ID": uid,
+        //             "MSG_JSON": json
+        //         }    
+        //     }
 
-        }
+        // }
+
+        // return data;
+
         // return JSON.stringify(json.quickReplies);
 
         // console.log('this is full request body\n' + JSON.stringify(data));
